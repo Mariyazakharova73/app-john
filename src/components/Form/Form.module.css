@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 360px;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 260px;
+  }
+}
+
+.title {
+  color: var(--app-bg-color);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.inputsWrapper {
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--app-bg-color);
+  padding: 10px 20px;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--app-bg-color);
+  width: 100%;
+}
+
+.input:focus {
+  outline: 1px solid var(--app-bg-color);
+}
+
+.button {
+  height: 50px;
+  border-radius: 2px;
+  background-color: var(--button-color);
+  color: var(--app-bg-color);
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+  transition: opacity 0.5s linear;
+  border: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    font-size: 16px;
+    line-height: 19px;
+    max-width: 260px;
+    height: 46px;
+  }
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.error {
+  color: var(--button-color);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+
+.inputWrapper {
+  position: relative;
+}

@@ -1,14 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { instance } from '../api/api';
+import { $api } from '../api/api';
+import { authReducer } from './slices/authSlice';
 
 const extraArg = {
-  api: instance,
+  api: $api,
 };
 
 const rootReducer = combineReducers({
-  // products: productsReducer,
-  // filters: filtersReducer,
+  auth: authReducer,
 });
 
 export const store = configureStore({

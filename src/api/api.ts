@@ -1,8 +1,15 @@
 import axios from 'axios';
-import { baseURL } from '../utils/constants';
-import { createAuthData } from '../utils/helpers';
 
-export const instance = axios.create({
+export const baseURL = 'http://localhost:5000';
+
+export const $api = axios.create({
+  // cookie к каждому запросу
+  withCredentials: true,
   baseURL: baseURL,
-  headers: { 'X-Auth': createAuthData() },
+  headers: {},
+});
+
+$api.interceptors.request.use(config => {
+  config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  return config;
 });

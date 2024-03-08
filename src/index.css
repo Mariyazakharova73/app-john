@@ -13,4 +13,12 @@ body {
 }
 
 :root {
+  --bg-color: #edf7fa;
+  --app-bg-color: #ffffff;
+  --button-color: #ff6464;
+  --button-color: #ff6464;
+  /* --text-color: #00a8cc; */
+  --text-color: #21243D;
+  --text-light-color: #8695a4;
+  --link-color: #142850;
 }
