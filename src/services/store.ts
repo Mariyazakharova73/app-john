@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { $api } from '../api/api';
-import { authReducer } from './slices/authSlice';
+import { authReducer, authState } from './slices/authSlice';
+import { userReducer, userState } from './slices/usersSlice';
 
 const extraArg = {
   api: $api,
@@ -9,6 +10,7 @@ const extraArg = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  data: userReducer,
 });
 
 export const store = configureStore({
@@ -26,8 +28,8 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export interface StateSchema {
-  // products: ProductState;
-  // filters: FiltersState;
+  auth: authState;
+  data: userState;
 }
 
 export interface ThunkExtraArg {

@@ -1,0 +1,44 @@
+.userInfo {
+  /* height: 512px; */
+  display: flex;
+  gap: 115px;
+  padding-top: 127px;
+  padding-bottom: 71px;
+}
+
+.avatar {
+  width: 243px;
+  height: 243px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 60px;
+  width: 500px;
+}
+
+.text {
+  margin-top: 40px;
+  margin-bottom: 38px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.button {
+  width: 208px;
+  height: 47px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--button-color);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 29px;
+  color: var(--app-bg-color);
+}

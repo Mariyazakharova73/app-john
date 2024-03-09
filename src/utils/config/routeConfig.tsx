@@ -1,8 +1,9 @@
 import { RouteProps } from 'react-router-dom';
+import { ProtectedRoute } from '../../HOC/ProtectedRoute';
+import LoginPage from '../../pages/LoginPage/LoginPage';
 import MainPage from '../../pages/MainPage/MainPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
-import LoginPage from '../../pages/LoginPage/LoginPage';
 
 export enum AppRoutes {
   MAIN = 'main',
@@ -21,7 +22,11 @@ export const RoutePath: Record<AppRoutes, string> = {
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
-    element: <MainPage />,
+    element: (
+      <ProtectedRoute>
+        <MainPage />
+      </ProtectedRoute>
+    ),
   },
   [AppRoutes.REGISTER]: {
     path: RoutePath.register,
@@ -29,7 +34,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.LOGIN]: {
     path: RoutePath.login,
-    element: <LoginPage/>,
+    element: <LoginPage />,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
