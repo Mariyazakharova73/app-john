@@ -1,0 +1,111 @@
+.postsWrapper {
+  padding: 7px 149px 32px;
+  background-color: var(--bg-color);
+}
+
+@media screen and (max-width: 1024px) {
+  .postsWrapper {
+    padding: 2px 11px 38px;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .titleWrapper {
+    justify-content: center;
+  }
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 60px;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+.link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .link {
+    display: none;
+  }
+}
+
+.cardWrapper {
+  gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 25px 25px 28px;
+  width: 418px;
+  background-color: var(--app-bg-color);
+  box-shadow: 0px 4px 10px 0px var(--shadow-color);
+}
+
+@media screen and (max-width: 1150px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    padding: 9px 20px 20px;
+  }
+}
+
+.cardTitle {
+  background-color: var(--app-bg-color);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 38px;
+}
+
+@media screen and (max-width: 767px) {
+  .cardTitle {
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+.dateWrapper {
+  margin-top: 28px;
+  margin-bottom: 18px;
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+@media screen and (max-width: 767px) {
+  .dateWrapper {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.cardText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}

@@ -1,8 +1,8 @@
 .form {
+  width: 360px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 360px;
 }
 
 @media screen and (max-width: 767px) {
@@ -34,14 +34,14 @@
 }
 
 .input {
+  padding: 10px 20px;
+  width: 100%;
   border: none;
   background-color: transparent;
   border-bottom: 2px solid var(--app-bg-color);
-  padding: 10px 20px;
   font-size: 14px;
   line-height: 17px;
   color: var(--app-bg-color);
-  width: 100%;
 }
 
 .input:focus {
@@ -49,6 +49,7 @@
 }
 
 .button {
+  padding: 0;
   height: 50px;
   border-radius: 2px;
   background-color: var(--button-color);
@@ -56,9 +57,7 @@
   font-size: 18px;
   line-height: 22px;
   cursor: pointer;
-  transition: opacity 0.5s linear;
   border: none;
-  padding: 0;
 }
 
 @media screen and (max-width: 767px) {

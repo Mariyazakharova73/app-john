@@ -1,11 +1,11 @@
+import cn from 'classnames';
 import avatar from '../../assets/avatar.png';
 import s from './UserInfo.module.css';
-import cn from 'classnames'
 
 const UserInfo = () => {
   return (
-    <div className={s.userInfo}>
-      <div>
+    <section className={s.userInfo}>
+      <div className={s.infoWrapper}>
         <h1 className={s.title}>Hi, I am John, Creative Technologist</h1>
         <p className={s.text}>
           Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
@@ -14,8 +14,10 @@ const UserInfo = () => {
         </p>
         <button className={cn(s.button, 'fade')}>Download Resume</button>
       </div>
-      <img className={s.avatar} src={avatar} />
-    </div>
+      <div className={s.imageWrapper}>
+        <img className={s.avatar} src={avatar} />
+      </div>
+    </section>
   );
 };
 

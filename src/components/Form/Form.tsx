@@ -58,7 +58,7 @@ const Form = ({
           {errors.password && <span className={s.error}>{errors.password}</span>}
         </div>
       </div>
-      <button className={s.button} disabled={!isValid}>
+      <button className={cn(s.button, 'fade')} disabled={!isValid}>
         {buttonText}
       </button>
     </form>

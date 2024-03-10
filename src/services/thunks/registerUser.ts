@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthResponse, UserData } from '../../types/types';
 import { RoutePath } from '../../utils/config/routeConfig';
 import { ThunkConfig } from '../store';
+import { TOKEN_KEY } from '../../utils/const';
 
 export const registerUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig<string>>(
   'auth/registerUser',
@@ -18,7 +19,7 @@ export const registerUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig
         throw new Error();
       }
 
-      localStorage.setItem('token', data.accessToken);
+      localStorage.setItem(TOKEN_KEY, data.accessToken);
 
       return data;
     } catch (e) {

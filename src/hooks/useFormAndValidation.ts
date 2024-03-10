@@ -7,7 +7,7 @@ export function useFormAndValidation() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    
+
     setValues({ ...values, [name]: value });
   };
 

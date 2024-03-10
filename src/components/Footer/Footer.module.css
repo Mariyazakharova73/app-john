@@ -1,0 +1,25 @@
+.footer {
+  padding-top: 51px;
+  padding-bottom: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.links {
+  display: flex;
+  gap: 35px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}

@@ -1,10 +1,13 @@
+import Posts from '../../components/Posts/Posts';
 import UserInfo from '../../components/UserInfo/UserInfo';
-import s from './MainPage.module.css';
+import Works from '../../components/Works/Works';
 
 const MainPage = () => {
   return (
-    <main className={s.main}>
+    <main>
       <UserInfo />
+      <Posts />
+      <Works />
     </main>
   );
 };

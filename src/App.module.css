@@ -2,5 +2,8 @@
   min-width: 320px;
   width: 100%;
   margin: 0 auto;
+}
+
+.pageWidth {
   max-width: 1152px;
 }

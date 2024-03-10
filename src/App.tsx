@@ -1,29 +1,25 @@
+import cn from 'classnames';
 import { Suspense, useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { ReactNotifications } from 'react-notifications-component';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import s from './App.module.css';
-import { useAppDispatch, useAppSelector } from './hooks/hooks';
-import { selectIsAuth, selectUsers } from './services/selectors/authSelectors';
-import { fetchUsers } from './services/thunks/fetchUsers';
-import { checkAuth, logout } from './services/thunks/loginUser';
-import { RoutePath, routeConfig } from './utils/config/routeConfig';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import { useAppDispatch, useAppSelector } from './hooks/hooks';
+import { selectIsAuth } from './services/selectors/authSelectors';
+import { checkAuth } from './services/thunks/loginUser';
+import { RoutePath, routeConfig } from './utils/config/routeConfig';
+import { TOKEN_KEY } from './utils/const';
 
 function App() {
   const dispatch = useAppDispatch();
   const isAuth = useAppSelector(selectIsAuth);
-  const users = useAppSelector(selectUsers);
   const navigate = useNavigate();
-
-  const getUsers = () => {
-    dispatch(fetchUsers());
-  };
-
-  const logOut = () => {
-    dispatch(logout());
-  };
+  const { pathname } = useLocation();
+  const isVisible = pathname !== RoutePath.login && pathname !== RoutePath.register;
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem(TOKEN_KEY)) {
       dispatch(checkAuth());
     }
   }, [dispatch]);
@@ -35,11 +31,9 @@ function App() {
   }, [isAuth, navigate]);
 
   return (
-    <div className={s.page}>
-      <Header />
-      {/* <button onClick={logOut}>Выйти</button>
-      <button onClick={getUsers}>get Users</button>
-      {users && <p>{users[0].email}</p>} */}
+    <div className={cn(s.page, { [s.pageWidth]: isVisible })}>
+      <ReactNotifications />
+      {isVisible && <Header />}
       <Suspense fallback={<div>loading...</div>}>
         <Routes>
           {Object.values(routeConfig).map(route => {
@@ -47,6 +41,7 @@ function App() {
           })}
         </Routes>
       </Suspense>
+      {isVisible && <Footer />}
     </div>
   );
 }

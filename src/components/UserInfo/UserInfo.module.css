@@ -1,33 +1,90 @@
 .userInfo {
-  /* height: 512px; */
+  padding: 127px 149px 71px;
   display: flex;
-  gap: 115px;
-  padding-top: 127px;
-  padding-bottom: 71px;
+  gap: 100px;
+}
+
+@media screen and (max-width: 1023px) {
+  .userInfo {
+    padding: 22px 10px 59px;
+    flex-direction: column-reverse;
+    gap: 34px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .userInfo {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .infoWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.imageWrapper {
+  width: 243px;
+  height: 243px;
+}
+
+@media screen and (max-width: 767px) {
+  .imageWrapper {
+    width: 175px;
+    height: 175px;
+  }
 }
 
 .avatar {
   width: 243px;
   height: 243px;
-  object-fit: cover;
-  object-position: center;
   border-radius: 50%;
-  display: block;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+  .avatar {
+    width: 175px;
+    height: 175px;
+  }
 }
 
 .title {
+  padding-top: 19px;
   font-size: 44px;
   font-weight: 700;
   line-height: 60px;
-  width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    padding-left: 14px;
+    padding-top: 8px;
+    font-size: 32px;
+    line-height: 40px;
+    max-width: 312px;
+  }
 }
 
 .text {
-  margin-top: 40px;
-  margin-bottom: 38px;
+  margin: 24px auto 32px;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .text {
+    margin-top: 21px;
+    margin-bottom: 27px;
+    max-width: 328px;
+  }
 }
 
 .button {

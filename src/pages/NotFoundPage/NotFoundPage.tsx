@@ -6,9 +6,7 @@ const NotFoundPage = () => {
   return (
     <main className={s.main}>
       <h1>Страница не найдена</h1>
-      <Link  to={RoutePath.main}>
-        На главную
-      </Link>
+      <Link to={RoutePath.main}>На главную</Link>
     </main>
   );
 };

@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+li {
+  list-style-type: none;
+}
+
 :root {
   --bg-color: #edf7fa;
   --app-bg-color: #ffffff;
@@ -18,9 +22,9 @@ body {
   --text-color: #21243d;
   --text-light-color: #8695a4;
   --link-color: #142850;
+  --shadow-color: #bbe1fa40;
   font-family: 'Heebo', sans-serif;
   font-optical-sizing: auto;
-  /* font-weight: <weight>; */
   font-style: normal;
 }
 

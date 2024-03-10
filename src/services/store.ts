@@ -2,7 +2,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { $api } from '../api/api';
 import { authReducer, authState } from './slices/authSlice';
-import { userReducer, userState } from './slices/usersSlice';
 
 const extraArg = {
   api: $api,
@@ -10,7 +9,6 @@ const extraArg = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  data: userReducer,
 });
 
 export const store = configureStore({
@@ -29,7 +27,6 @@ export type AppDispatch = typeof store.dispatch;
 
 export interface StateSchema {
   auth: authState;
-  data: userState;
 }
 
 export interface ThunkExtraArg {

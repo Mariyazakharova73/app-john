@@ -22,14 +22,7 @@ const initialState: authState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    // setAuth: (state, action: PayloadAction<boolean>) => {
-    //   state.isAuth = action.payload
-    // },
-    // setUser: (state, action: PayloadAction<boolean>) => {
-    //   state.isAuth = action.payload
-    // },
-  },
+  reducers: {},
   extraReducers: builder => {
     // register
     builder
@@ -64,7 +57,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       });
-    // loguit
+    // logout
     builder
       .addCase(logout.pending, state => {
         state.error = undefined;

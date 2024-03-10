@@ -12,20 +12,17 @@ const LoginPage = () => {
   const { values, handleChange, errors, isValid, handleBlur } = useFormAndValidation();
   const isAuth = useAppSelector(selectIsAuth);
 
-  console.log(isAuth, 'isAuth')
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
-    console.log('login');
     dispatch(loginUser(values));
     if (isAuth) {
       navigate(RoutePath.main);
     }
   };
+
   return (
     <main className={s.page}>
       <Form

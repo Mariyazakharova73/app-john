@@ -1,7 +1,3 @@
-export interface RequestResult<T> {
-  result: T;
-}
-
 export interface UserData {
   email: string;
   password: string | number;

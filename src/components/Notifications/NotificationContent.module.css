@@ -1,0 +1,19 @@
+.containerSuccess {
+  min-width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(
+    63.18deg,
+    var(--color-primary) 0%,
+    var(--link-color) 100%
+  );
+  color: var(--bg-color);
+}
+
+.containerError {
+  min-width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  color: var(--bg-color);
+}

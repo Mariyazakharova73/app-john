@@ -18,7 +18,6 @@ const RegisterPage = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log('register');
     dispatch(registerUser(values));
     if (isAuth) {
       navigate(RoutePath.main);

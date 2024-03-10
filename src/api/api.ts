@@ -1,8 +1,11 @@
 import axios from 'axios';
 import { AuthResponse } from '../types/types';
-import { UNAUTHORIZED_STATUS_CODE } from '../utils/const';
-
-export const baseURL = 'http://localhost:5000';
+import {
+  REFRESH_PATH,
+  TOKEN_KEY,
+  UNAUTHORIZED_STATUS_CODE,
+  baseURL,
+} from '../utils/const';
 
 export const $api = axios.create({
   // cookie к каждому запросу
@@ -12,7 +15,7 @@ export const $api = axios.create({
 });
 
 $api.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_KEY)}`;
   return config;
 });
 
@@ -31,10 +34,10 @@ $api.interceptors.response.use(
       // для повтора запроса только 1 раз
       originalRequest._isRetry = true;
       try {
-        const { data } = await axios.get<AuthResponse>(`${baseURL}/refresh`, {
+        const { data } = await axios.get<AuthResponse>(`${baseURL}${REFRESH_PATH}`, {
           withCredentials: true,
         });
-        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem(TOKEN_KEY, data.accessToken);
         return $api.request(originalRequest);
       } catch (e) {
         console.log('Пользователь не авторизован');
