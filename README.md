@@ -11,6 +11,11 @@
 
 #### О проекте
 
+Приложение из 3-х страниц (Страница авторизации, страница регистрации, главная страница).
+Access токен хранится в localStorage, refresh токен хранится в cookie. 
+
+Макет: https://www.figma.com/file/u96UjK2Kzo2bk0PhVdL5xr/John-%2B?type=design&node-id=0-1&mode=design&t=n00hl8GhumWEknWc-0
+
 
 #### Установка и запуск приложения
 
