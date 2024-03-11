@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { default as axios, default as request } from 'axios';
+
 import {
   ErrorNotification,
   InfoNotification,
 } from '../../components/Notifications/Notification';
 import { AuthResponse, UserData } from '../../types/types';
 import { RoutePath } from '../../utils/config/routeConfig';
-import { TOKEN_KEY, baseURL } from '../../utils/const';
+import { LOGOUT_PATH, TOKEN_KEY, baseURL } from '../../utils/const';
 import { ThunkConfig } from '../store';
 
 export const loginUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig<string>>(
@@ -27,8 +28,9 @@ export const loginUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig<st
       InfoNotification('Вы успешно авторизованы!');
       return data;
     } catch (e) {
-      //@ts-ignore
-      ErrorNotification(e.response?.data?.message);
+      if (request.isAxiosError(e) && e.response) {
+        ErrorNotification(e.response.data.message);
+      }
       console.log(e);
       return rejectWithValue('Ошибка');
     }
@@ -41,7 +43,7 @@ export const logout = createAsyncThunk<void, void, ThunkConfig<string>>(
     const { extra, rejectWithValue } = thunkAPI;
 
     try {
-      const { data } = await extra.api.post<any>('/logout');
+      const { data } = await extra.api.post<any>(LOGOUT_PATH);
       if (!data) {
         throw new Error();
       }
@@ -49,6 +51,7 @@ export const logout = createAsyncThunk<void, void, ThunkConfig<string>>(
       InfoNotification('Вы вышли из аккаунта!');
       return data;
     } catch (e) {
+      ErrorNotification('');
       console.log(e);
       return rejectWithValue('Ошибка');
     }
@@ -70,6 +73,9 @@ export const checkAuth = createAsyncThunk<AuthResponse, void, ThunkConfig<string
       localStorage.setItem(TOKEN_KEY, data.accessToken);
       return data;
     } catch (e) {
+      if (request.isAxiosError(e) && e.response) {
+        ErrorNotification(e.response?.data?.message);
+      }
       console.log(e);
       return rejectWithValue('Ошибка');
     }

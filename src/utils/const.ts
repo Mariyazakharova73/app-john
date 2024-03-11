@@ -6,6 +6,7 @@ import works3 from '../assets/works3.jpg';
 export const baseURL = 'http://localhost:5000';
 
 export const REFRESH_PATH = '/refresh';
+export const LOGOUT_PATH = '/logout';
 
 export const UNAUTHORIZED_STATUS_CODE = '401';
 

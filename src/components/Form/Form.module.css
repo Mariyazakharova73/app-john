@@ -91,3 +91,21 @@
 .inputWrapper {
   position: relative;
 }
+
+.wrapper {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: var(--color-primary)
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary)
+}

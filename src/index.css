@@ -1,3 +1,5 @@
+@import 'react-notifications-component/dist/theme.css';
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -35,4 +37,13 @@ li {
 
 .fade:hover {
   opacity: 0.6;
+}
+
+.rnc__notification-item {
+  box-shadow: none;
+}
+
+.rnc__notification {
+  width: 300px !important;
+  border-radius: 15px;
 }

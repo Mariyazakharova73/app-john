@@ -1,8 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { default as request } from 'axios';
+import {
+  ErrorNotification,
+  InfoNotification,
+} from '../../components/Notifications/Notification';
 import { AuthResponse, UserData } from '../../types/types';
 import { RoutePath } from '../../utils/config/routeConfig';
-import { ThunkConfig } from '../store';
 import { TOKEN_KEY } from '../../utils/const';
+import { ThunkConfig } from '../store';
 
 export const registerUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig<string>>(
   'auth/registerUser',
@@ -20,11 +25,13 @@ export const registerUser = createAsyncThunk<AuthResponse, UserData, ThunkConfig
       }
 
       localStorage.setItem(TOKEN_KEY, data.accessToken);
-
+      InfoNotification('Вы успешно зарегистрировались!');
       return data;
     } catch (e) {
-      // @ts-ignore
-      console.log(e.response?.data?.message);
+      if (request.isAxiosError(e) && e.response) {
+        ErrorNotification(e.response?.data?.message);
+      }
+      console.log(e);
       return rejectWithValue('Ошибка');
     }
   },

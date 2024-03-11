@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { ChangeEvent, FormEvent } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { UserData } from '../../types/types';
+import { RoutePath } from '../../utils/config/routeConfig';
 import s from './Form.module.css';
 
 export interface FormProps {
@@ -24,6 +26,9 @@ const Form = ({
   errors,
   isValid,
 }: FormProps) => {
+  const { pathname } = useLocation();
+  const isLoginRath = pathname === RoutePath.login;
+
   return (
     <form className={cn(s.form, 'form')} onSubmit={handleSubmit}>
       <h2 className={s.title}>{title}</h2>
@@ -61,6 +66,20 @@ const Form = ({
       <button className={cn(s.button, 'fade')} disabled={!isValid}>
         {buttonText}
       </button>
+      <div className={s.wrapper}>
+        {isLoginRath ? (
+          <Link className={cn(s.link, 'fade')} to={RoutePath.register}>
+            Регистрация
+          </Link>
+        ) : (
+          <div className={s.container}>
+            <p>Вы уже зарегистрированы?</p>&ensp;
+            <Link className={cn(s.link, 'fade')} to={RoutePath.login}>
+              Войти
+            </Link>
+          </div>
+        )}
+      </div>
     </form>
   );
 };

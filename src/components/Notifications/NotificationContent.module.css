@@ -1,5 +1,5 @@
 .containerSuccess {
-  min-width: 200px;
+  width: 350px;
   padding: 15px;
   border-radius: 15px;
   background: linear-gradient(
@@ -11,7 +11,7 @@
 }
 
 .containerError {
-  min-width: 200px;
+  width: 300px;
   padding: 15px;
   border-radius: 15px;
   background-color: var(--button-color);
