@@ -44,3 +44,9 @@ Access токен хранится в localStorage, refresh токен хран�
 Запустить проект:
 
     npm start
+
+
+<div align="center">
+  <img width="575" alt="Приложение." src="./src/assets/login.png">
+  <img width="575" alt="Приложение." src="./src/assets/john.png">
+</div>
